@@ -47,6 +47,17 @@
       background-image: url('https://www.transparenttextures.com/patterns/light-paper-fibers.png');
     }
     
+    /* تعديل اتجاه النص للمحتوى التركي */
+    .turkish-content {
+      direction: ltr;
+      text-align: left;
+    }
+    
+    .arabic-title {
+      direction: rtl;
+      text-align: center;
+    }
+    
     .section {
       display: none;
       margin-bottom: 30px;
@@ -829,12 +840,12 @@
   <div id="intro" class="section active">
     <div class="corner-decoration top-left"></div>
     <div class="corner-decoration bottom-right"></div>
-    <h1>اختبار تفاعلي لمادة اللغة التركية</h1>
+    <h1 class="arabic-title">اختبار تفاعلي لمادة اللغة التركية</h1>
     
     <div class="wisdom-card animate__animated animate__fadeIn">
-      <h3>حكمة تركية</h3>
+      <h3 class="arabic-title">حكمة تركية</h3>
       <div class="wisdom-content">
-        <div class="wisdom-text">
+        <div class="wisdom-text turkish-content">
           "Damlaya damlaya göl olur." - <span class="translation">"بالتكرار تتشكل البحيرة"</span>
         </div>
       </div>
@@ -858,18 +869,18 @@
   <div id="group1" class="section">
     <div class="corner-decoration top-left"></div>
     <div class="corner-decoration bottom-right"></div>
-    <h2>القسم الأول: فهم النص</h2>
+    <h2 class="arabic-title">القسم الأول: فهم النص</h2>
     
     <div class="wisdom-card">
-      <h3>حكمة تركية</h3>
+      <h3 class="arabic-title">حكمة تركية</h3>
       <div class="wisdom-content">
-        <div class="wisdom-text">
+        <div class="wisdom-text turkish-content">
           "Birlikten kuvvet doğar." - <span class="translation">"القوة تأتي من الاتحاد"</span>
         </div>
       </div>
     </div>
     
-    <div id="textDisplay"></div>
+    <div id="textDisplay" class="turkish-content"></div>
     <div class="question-container" id="questions1"></div>
     <div class="navigation">
       <div></div>
@@ -880,12 +891,12 @@
   <div id="group2" class="section">
     <div class="corner-decoration top-left"></div>
     <div class="corner-decoration bottom-right"></div>
-    <h2>القسم الثاني: المفردات</h2>
+    <h2 class="arabic-title">القسم الثاني: المفردات</h2>
     
     <div class="wisdom-card">
-      <h3>حكمة تركية</h3>
+      <h3 class="arabic-title">حكمة تركية</h3>
       <div class="wisdom-content">
-        <div class="wisdom-text">
+        <div class="wisdom-text turkish-content">
           "Dil öğrenmek, yeni bir dünyaya açılan kapıdır." - <span class="translation">"تعلم لغة هو باب لعالم جديد"</span>
         </div>
       </div>
@@ -901,12 +912,12 @@
   <div id="group3" class="section">
     <div class="corner-decoration top-left"></div>
     <div class="corner-decoration bottom-right"></div>
-    <h2>القسم الثالث: حروف الجر</h2>
+    <h2 class="arabic-title">القسم الثالث: حروف الجر</h2>
     
     <div class="wisdom-card">
-      <h3>حكمة تركية</h3>
+      <h3 class="arabic-title">حكمة تركية</h3>
       <div class="wisdom-content">
-        <div class="wisdom-text">
+        <div class="wisdom-text turkish-content">
           "Sabreden derviş, muradına ermiş." - <span class="translation">"من صبر نال ما يريد"</span>
         </div>
       </div>
@@ -922,12 +933,12 @@
   <div id="group4" class="section">
     <div class="corner-decoration top-left"></div>
     <div class="corner-decoration bottom-right"></div>
-    <h2>القسم الرابع: ترتيب الجمل</h2>
+    <h2 class="arabic-title">القسم الرابع: ترتيب الجمل</h2>
     
     <div class="wisdom-card">
-      <h3>حكمة تركية</h3>
+      <h3 class="arabic-title">حكمة تركية</h3>
       <div class="wisdom-content">
-        <div class="wisdom-text">
+        <div class="wisdom-text turkish-content">
           "Söz gümüşse, sükût altındır." - <span class="translation">"إذا كان الكلام من فضة فالسكوت من ذهب"</span>
         </div>
       </div>
@@ -943,12 +954,12 @@
   <div id="group5" class="section">
     <div class="corner-decoration top-left"></div>
     <div class="corner-decoration bottom-right"></div>
-    <h2>القسم الخامس: أسئلة متنوعة</h2>
+    <h2 class="arabic-title">القسم الخامس: أسئلة متنوعة</h2>
     
     <div class="wisdom-card">
-      <h3>حكمة تركية</h3>
+      <h3 class="arabic-title">حكمة تركية</h3>
       <div class="wisdom-content">
-        <div class="wisdom-text">
+        <div class="wisdom-text turkish-content">
           "Ne ekersen onu biçersin." - <span class="translation">"كما تزرع تحصد"</span>
         </div>
       </div>
@@ -964,12 +975,12 @@
   <div id="group6" class="section">
     <div class="corner-decoration top-left"></div>
     <div class="corner-decoration bottom-right"></div>
-    <h2>القسم السادس: الأفعال</h2>
+    <h2 class="arabic-title">القسم السادس: الأفعال</h2>
     
     <div class="wisdom-card">
-      <h3>حكمة تركية</h3>
+      <h3 class="arabic-title">حكمة تركية</h3>
       <div class="wisdom-content">
-        <div class="wisdom-text">
+        <div class="wisdom-text turkish-content">
           "İşleyen demir pas tutmaz." - <span class="translation">"الحديد المستعمل لا يصدأ"</span>
         </div>
       </div>
@@ -990,7 +1001,7 @@
       <div class="ribbon">
         <span>النتائج</span>
       </div>
-      <h2>نتائج الاختبار</h2>
+      <h2 class="arabic-title">نتائج الاختبار</h2>
       <div id="userNameDisplay"></div>
       <div class="result-score" id="resultScore"></div>
       <div class="result-message" id="resultMessage"></div>
@@ -1040,13 +1051,13 @@
     </div>
     
     <div class="answer-review" id="answerReview">
-      <h3>مراجعة الإجابات التفصيلية</h3>
+      <h3 class="arabic-title">مراجعة الإجابات التفصيلية</h3>
     </div>
     
     <div class="wisdom-card">
-      <h3>حكمة تركية ختامية</h3>
+      <h3 class="arabic-title">حكمة تركية ختامية</h3>
       <div class="wisdom-content">
-        <div class="wisdom-text">
+        <div class="wisdom-text turkish-content">
           "Başarı, 'başaracağım' diyenindir." - <span class="translation">"النجاح لمن يقول سأنجح"</span>
         </div>
       </div>
@@ -1077,6 +1088,7 @@
     let questionsPerGroup = {};
     let currentQuestions = [];
     let resultsChart = null;
+    let questionOptionsMapping = {}; // خريطة لربط الخيارات المخلوطة بالأصلية
 
     document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('startBtn').addEventListener('click', startTest);
@@ -1249,13 +1261,13 @@
       if (!q || !q.question) return;
       
       const questionDiv = document.createElement('div');
-      questionDiv.className = 'question';
+      questionDiv.className = 'question turkish-content';
       questionDiv.textContent = (currentQuestionIndex + 1) + '. ' + q.question;
       
       const optionsDiv = document.createElement('div');
       optionsDiv.className = 'options';
       
-      // تحضير خيارات السؤال وخلطها عشوائياً
+      // تحضير خيارات السؤال
       let options = [];
       if (q.options && Array.isArray(q.options)) {
         options = [...q.options];
@@ -1267,21 +1279,34 @@
         }
       }
       
+      // إنشاء خريطة للخيارات الأصلية قبل الخلط
+      const originalOptions = [...options];
+      const answerKey = `group${currentGroup}_q${currentQuestionIndex}`;
+      
       // خلط الخيارات عشوائياً
       shuffleArray(options);
       
-      options.forEach((option, oIndex) => {
+      // إنشاء خريطة لربط الخيارات المخلوطة بالأصلية
+      questionOptionsMapping[answerKey] = {};
+      
+      options.forEach((option, shuffledIndex) => {
         if (!option) return;
         
-        const optionId = `group${currentGroup}_q${currentQuestionIndex}_o${oIndex + 1}`;
-        const answerKey = `group${currentGroup}_q${currentQuestionIndex}`;
+        // العثور على الفهرس الأصلي لهذا الخيار
+        const originalIndex = originalOptions.indexOf(option);
+        
+        const optionId = `group${currentGroup}_q${currentQuestionIndex}_o${shuffledIndex + 1}`;
         
         const label = document.createElement('label');
+        label.className = 'turkish-content';
         const input = document.createElement('input');
         input.type = 'radio';
         input.name = answerKey;
-        input.value = oIndex + 1;
+        input.value = originalIndex + 1; // استخدام الفهرس الأصلي كقيمة
         input.id = optionId;
+        
+        // حفظ الخريطة للاستخدام في التصحيح
+        questionOptionsMapping[answerKey][originalIndex + 1] = option;
         
         // تحقق مما إذا كانت هذه الإجابة محفوظة مسبقا
         if (userAnswers[input.name] == input.value) {
@@ -1354,7 +1379,7 @@
       const detailedResults = document.getElementById('detailedResults');
       const answerReview = document.getElementById('answerReview');
       detailedResults.innerHTML = '';
-      answerReview.innerHTML = '<h3>إجاباتك:</h3>';
+      answerReview.innerHTML = '<h3 class="arabic-title">إجاباتك:</h3>';
       
       const wrongAnswers = [];
       
@@ -1367,23 +1392,19 @@
             
             totalQuestions++;
             const answerKey = `group${group.id}_q${qIndex}`;
-            const selectedInput = document.querySelector(`input[name="${answerKey}"]:checked`);
-            
-            // احصل على الإجابة المحددة من userAnswers إذا لم يتم العثور عليها في DOM
-            const userAnswerValue = userAnswers[answerKey] || (selectedInput ? selectedInput.value : null);
+            const userAnswerValue = userAnswers[answerKey];
             
             let isCorrect = false;
             let userAnswerText = 'لم يتم الإجابة';
             
             if (userAnswerValue) {
-                // احصل على نص الإجابة المحددة
-                const selectedOption = document.querySelector(`input[name="${answerKey}"][value="${userAnswerValue}"]`);
-                if (selectedOption) {
-                    userAnswerText = selectedOption.parentElement.textContent.trim();
+                // احصل على نص الإجابة المحددة من الخريطة
+                if (questionOptionsMapping[answerKey] && questionOptionsMapping[answerKey][userAnswerValue]) {
+                    userAnswerText = questionOptionsMapping[answerKey][userAnswerValue];
                 }
                 
-                // تحقق مما إذا كانت الإجابة صحيحة
-                isCorrect = userAnswerValue == q.correctanswer;
+                // تحقق مما إذا كانت الإجابة صحيحة - مقارنة مباشرة مع الإجابة الصحيحة
+                isCorrect = parseInt(userAnswerValue) === parseInt(q.correctanswer);
             }
             
             if (isCorrect) {
@@ -1408,11 +1429,11 @@
             reviewItem.appendChild(sectionIndicator);
             
             const reviewQuestion = document.createElement('div');
-            reviewQuestion.className = 'review-question';
+            reviewQuestion.className = 'review-question turkish-content';
             reviewQuestion.textContent = q.question;
             
             const userAnswerDiv = document.createElement('div');
-            userAnswerDiv.className = 'user-answer';
+            userAnswerDiv.className = 'user-answer turkish-content';
             userAnswerDiv.textContent = "إجابتك: " + userAnswerText;
             
             reviewItem.appendChild(reviewQuestion);
@@ -1420,7 +1441,7 @@
             
             if (!isCorrect) {
                 const correctAnswerDiv = document.createElement('div');
-                correctAnswerDiv.className = 'correct-answer';
+                correctAnswerDiv.className = 'correct-answer turkish-content';
                 correctAnswerDiv.textContent = "الإجابة الصحيحة: " + getCorrectAnswerText(q);
                 reviewItem.appendChild(correctAnswerDiv);
             }
@@ -1580,19 +1601,18 @@
     function getCorrectAnswerText(question) {
       if (!question) return "";
       
+      const correctIndex = parseInt(question.correctanswer);
+      
       // If options array exists
       if (question.options && Array.isArray(question.options)) {
-        const correctIndex = parseInt(question.correctanswer) - 1;
-        if (correctIndex >= 0 && correctIndex < question.options.length) {
-          return question.options[correctIndex];
+        if (correctIndex >= 1 && correctIndex <= question.options.length) {
+          return question.options[correctIndex - 1];
         }
       }
       
       // If options are in separate properties (option1, option2, etc.)
-      for (let i = 1; i <= 5; i++) {
-        if (question['option' + i] && i === parseInt(question.correctanswer)) {
-          return question['option' + i];
-        }
+      if (question['option' + correctIndex]) {
+        return question['option' + correctIndex];
       }
       
       return "لم يتم تحديد إجابة صحيحة";
@@ -1655,6 +1675,7 @@
       userAnswers = {};
       testData = {};
       groupResults = {};
+      questionOptionsMapping = {};
       
       document.getElementById('userName').value = '';
       
@@ -1694,3 +1715,4 @@
   </script>
 </body>
 </html>
+
