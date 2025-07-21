@@ -40,7 +40,7 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 20px;
-      direction: ltr;
+      direction: rtl;
       background-color: var(--background-color);
       color: var(--text-color);
       line-height: 1.6;
@@ -143,23 +143,21 @@
     
     .question-container {
       margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
     
     .question {
       margin-bottom: 20px;
-      padding: 20px;
-      border-radius: 10px;
-      background-color: #f9f9f9;
-      border-left: 4px solid var(--secondary-color);
-      transition: all 0.3s ease;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: white;
+      border-right: 4px solid var(--secondary-color);
       font-size: 18px;
       font-weight: bold;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    
-    .question:hover {
-      transform: translateX(5px);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
     
     .options {
@@ -174,7 +172,7 @@
       border-radius: 8px;
       transition: all 0.2s;
       position: relative;
-      padding-left: 45px;
+      padding-right: 45px;
       font-size: 16px;
       font-weight: bold;
       background-color: #f5f5f5;
@@ -182,12 +180,12 @@
     
     .options label:hover {
       background-color: var(--light-color);
-      transform: translateX(3px);
+      transform: translateX(-3px);
     }
     
     .options input[type="radio"] {
       position: absolute;
-      left: 15px;
+      right: 15px;
       top: 50%;
       transform: translateY(-50%);
       width: 20px;
@@ -348,24 +346,24 @@
       font-size: 16px;
       white-space: nowrap;
       animation: scrollText 20s linear infinite;
-      padding-left: 100%;
+      padding-right: 100%;
     }
     
     @keyframes scrollText {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
     }
     
     .translation {
       font-weight: bold;
       color: var(--dark-color);
-      margin-left: 10px;
+      margin-right: 10px;
     }
     
     .floating-icon {
       position: fixed;
       bottom: 30px;
-      right: 30px;
+      left: 30px;
       width: 60px;
       height: 60px;
       background-color: var(--primary-color);
@@ -425,12 +423,12 @@
     }
     
     .review-item.correct {
-      border-left: 4px solid var(--correct-color);
+      border-right: 4px solid var(--correct-color);
       background-color: rgba(76, 175, 80, 0.05);
     }
     
     .review-item.incorrect {
-      border-left: 4px solid var(--incorrect-color);
+      border-right: 4px solid var(--incorrect-color);
       background-color: rgba(244, 67, 54, 0.05);
     }
     
@@ -636,7 +634,7 @@
       overflow: hidden;
       position: absolute;
       top: -10px;
-      right: -10px;
+      left: -10px;
     }
     
     .ribbon::before,
@@ -660,9 +658,16 @@
       text-shadow: 0 1px 1px rgba(0,0,0,.2);
       text-transform: uppercase;
       text-align: center;
-      right: -25px;
+      left: -25px;
       top: 30px;
-      transform: rotate(45deg);
+      transform: rotate(-45deg);
+    }
+    
+    /* Question navigation buttons */
+    .question-nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
     }
     
     /* Responsive design */
@@ -691,7 +696,7 @@
       
       .options label {
         padding: 10px 12px;
-        padding-left: 40px;
+        padding-right: 40px;
         font-size: 15px;
       }
       
@@ -751,7 +756,7 @@
       
       @keyframes scrollTextMobile {
         0% { transform: translateX(0); }
-        100% { transform: translateX(-150%); }
+        100% { transform: translateX(150%); }
       }
       
       .badge {
@@ -765,6 +770,58 @@
         bottom: -15px;
       }
     }
+
+    /* Telegram report styling */
+    .telegram-report {
+      font-family: 'Tajawal', Arial, sans-serif;
+      direction: rtl;
+      line-height: 1.6;
+    }
+    
+    .telegram-report h2 {
+      color: #2E7D32;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .telegram-report h3 {
+      color: #388E3C;
+      font-size: 1.2rem;
+      margin: 15px 0 10px;
+    }
+    
+    .telegram-report p {
+      margin-bottom: 10px;
+    }
+    
+    .telegram-report .highlight {
+      color: #FF9800;
+      font-weight: bold;
+    }
+    
+    .telegram-report .correct {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+    
+    .telegram-report .incorrect {
+      color: #F44336;
+      font-weight: bold;
+    }
+    
+    .telegram-report .section-title {
+      color: #2196F3;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    
+    .telegram-report .question-item {
+      margin-bottom: 15px;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+    }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -775,7 +832,7 @@
     <h1>اختبار تفاعلي لمادة اللغة التركية</h1>
     
     <div class="wisdom-card animate__animated animate__fadeIn">
-      <h3>Turkish Wisdom</h3>
+      <h3>حكمة تركية</h3>
       <div class="wisdom-content">
         <div class="wisdom-text">
           "Damlaya damlaya göl olur." - <span class="translation">"بالتكرار تتشكل البحيرة"</span>
@@ -784,27 +841,27 @@
     </div>
     
     <div id="userInfo">
-      <label for="userName">Name:</label>
-      <input type="text" id="userName" required placeholder="Enter your name here">
+      <label for="userName">الاسم:</label>
+      <input type="text" id="userName" required placeholder="أدخل اسمك هنا">
     </div>
     
     <div style="text-align: center;">
-      <button id="startBtn">Start Test <i class="fas fa-play"></i></button>
+      <button id="startBtn">بدء الاختبار <i class="fas fa-play"></i></button>
     </div>
   </div>
 
   <div class="loading" id="loading">
     <div class="loading-spinner"></div>
-    <p>Loading test...</p>
+    <p>جاري تحميل الاختبار...</p>
   </div>
 
   <div id="group1" class="section">
     <div class="corner-decoration top-left"></div>
     <div class="corner-decoration bottom-right"></div>
-    <h2>Section 1: Text Comprehension</h2>
+    <h2>القسم الأول: فهم النص</h2>
     
     <div class="wisdom-card">
-      <h3>Turkish Proverb</h3>
+      <h3>حكمة تركية</h3>
       <div class="wisdom-content">
         <div class="wisdom-text">
           "Birlikten kuvvet doğar." - <span class="translation">"القوة تأتي من الاتحاد"</span>
@@ -816,17 +873,17 @@
     <div class="question-container" id="questions1"></div>
     <div class="navigation">
       <div></div>
-      <button id="nextBtn1">Next <i class="fas fa-arrow-right"></i></button>
+      <button id="nextGroup1">القسم التالي <i class="fas fa-arrow-left"></i></button>
     </div>
   </div>
 
   <div id="group2" class="section">
     <div class="corner-decoration top-left"></div>
     <div class="corner-decoration bottom-right"></div>
-    <h2>Section 2: Vocabulary</h2>
+    <h2>القسم الثاني: المفردات</h2>
     
     <div class="wisdom-card">
-      <h3>Turkish Saying</h3>
+      <h3>حكمة تركية</h3>
       <div class="wisdom-content">
         <div class="wisdom-text">
           "Dil öğrenmek, yeni bir dünyaya açılan kapıdır." - <span class="translation">"تعلم لغة هو باب لعالم جديد"</span>
@@ -836,18 +893,18 @@
     
     <div class="question-container" id="questions2"></div>
     <div class="navigation">
-      <button id="prevBtn2"><i class="fas fa-arrow-left"></i> Previous</button>
-      <button id="nextBtn2">Next <i class="fas fa-arrow-right"></i></button>
+      <button id="prevGroup2"><i class="fas fa-arrow-right"></i> القسم السابق</button>
+      <button id="nextGroup2">القسم التالي <i class="fas fa-arrow-left"></i></button>
     </div>
   </div>
 
   <div id="group3" class="section">
     <div class="corner-decoration top-left"></div>
     <div class="corner-decoration bottom-right"></div>
-    <h2>Section 3: Prepositions</h2>
+    <h2>القسم الثالث: حروف الجر</h2>
     
     <div class="wisdom-card">
-      <h3>Turkish Wisdom</h3>
+      <h3>حكمة تركية</h3>
       <div class="wisdom-content">
         <div class="wisdom-text">
           "Sabreden derviş, muradına ermiş." - <span class="translation">"من صبر نال ما يريد"</span>
@@ -857,18 +914,18 @@
     
     <div class="question-container" id="questions3"></div>
     <div class="navigation">
-      <button id="prevBtn3"><i class="fas fa-arrow-left"></i> Previous</button>
-      <button id="nextBtn3">Next <i class="fas fa-arrow-right"></i></button>
+      <button id="prevGroup3"><i class="fas fa-arrow-right"></i> القسم السابق</button>
+      <button id="nextGroup3">القسم التالي <i class="fas fa-arrow-left"></i></button>
     </div>
   </div>
 
   <div id="group4" class="section">
     <div class="corner-decoration top-left"></div>
     <div class="corner-decoration bottom-right"></div>
-    <h2>Section 4: Sentence Ordering</h2>
+    <h2>القسم الرابع: ترتيب الجمل</h2>
     
     <div class="wisdom-card">
-      <h3>Turkish Proverb</h3>
+      <h3>حكمة تركية</h3>
       <div class="wisdom-content">
         <div class="wisdom-text">
           "Söz gümüşse, sükût altındır." - <span class="translation">"إذا كان الكلام من فضة فالسكوت من ذهب"</span>
@@ -878,18 +935,18 @@
     
     <div class="question-container" id="questions4"></div>
     <div class="navigation">
-      <button id="prevBtn4"><i class="fas fa-arrow-left"></i> Previous</button>
-      <button id="nextBtn4">Next <i class="fas fa-arrow-right"></i></button>
+      <button id="prevGroup4"><i class="fas fa-arrow-right"></i> القسم السابق</button>
+      <button id="nextGroup4">القسم التالي <i class="fas fa-arrow-left"></i></button>
     </div>
   </div>
 
   <div id="group5" class="section">
     <div class="corner-decoration top-left"></div>
     <div class="corner-decoration bottom-right"></div>
-    <h2>Section 5: Mixed Questions</h2>
+    <h2>القسم الخامس: أسئلة متنوعة</h2>
     
     <div class="wisdom-card">
-      <h3>Turkish Saying</h3>
+      <h3>حكمة تركية</h3>
       <div class="wisdom-content">
         <div class="wisdom-text">
           "Ne ekersen onu biçersin." - <span class="translation">"كما تزرع تحصد"</span>
@@ -899,18 +956,18 @@
     
     <div class="question-container" id="questions5"></div>
     <div class="navigation">
-      <button id="prevBtn5"><i class="fas fa-arrow-left"></i> Previous</button>
-      <button id="nextBtn5">Next <i class="fas fa-arrow-right"></i></button>
+      <button id="prevGroup5"><i class="fas fa-arrow-right"></i> القسم السابق</button>
+      <button id="nextGroup5">القسم التالي <i class="fas fa-arrow-left"></i></button>
     </div>
   </div>
 
   <div id="group6" class="section">
     <div class="corner-decoration top-left"></div>
     <div class="corner-decoration bottom-right"></div>
-    <h2>Section 6: Verbs</h2>
+    <h2>القسم السادس: الأفعال</h2>
     
     <div class="wisdom-card">
-      <h3>Turkish Wisdom</h3>
+      <h3>حكمة تركية</h3>
       <div class="wisdom-content">
         <div class="wisdom-text">
           "İşleyen demir pas tutmaz." - <span class="translation">"الحديد المستعمل لا يصدأ"</span>
@@ -920,8 +977,8 @@
     
     <div class="question-container" id="questions6"></div>
     <div class="navigation">
-      <button id="prevBtn6"><i class="fas fa-arrow-left"></i> Previous</button>
-      <button id="finishBtn">Finish Test <i class="fas fa-flag-checkered"></i></button>
+      <button id="prevGroup6"><i class="fas fa-arrow-right"></i> القسم السابق</button>
+      <button id="finishBtn">إنهاء الاختبار <i class="fas fa-flag-checkered"></i></button>
     </div>
   </div>
 
@@ -931,9 +988,9 @@
     
     <div class="result-header">
       <div class="ribbon">
-        <span>Results</span>
+        <span>النتائج</span>
       </div>
-      <h2>Test Results</h2>
+      <h2>نتائج الاختبار</h2>
       <div id="userNameDisplay"></div>
       <div class="result-score" id="resultScore"></div>
       <div class="result-message" id="resultMessage"></div>
@@ -971,7 +1028,7 @@
     <div class="result-details">
       <div class="result-section">
         <div class="result-section-title">
-          <span>Overall Performance</span>
+          <span>الأداء العام</span>
           <span class="result-section-value" id="overallPerformance"></span>
         </div>
         <div class="progress-container">
@@ -983,11 +1040,11 @@
     </div>
     
     <div class="answer-review" id="answerReview">
-      <h3>Detailed Answer Review</h3>
+      <h3>مراجعة الإجابات التفصيلية</h3>
     </div>
     
     <div class="wisdom-card">
-      <h3>Final Turkish Wisdom</h3>
+      <h3>حكمة تركية ختامية</h3>
       <div class="wisdom-content">
         <div class="wisdom-text">
           "Başarı, 'başaracağım' diyenindir." - <span class="translation">"النجاح لمن يقول سأنجح"</span>
@@ -996,17 +1053,17 @@
     </div>
     
     <div class="navigation" style="justify-content: center;">
-      <button id="restartBtn">Restart Test <i class="fas fa-redo"></i></button>
+      <button id="restartBtn">إعادة الاختبار <i class="fas fa-redo"></i></button>
     </div>
   </div>
 
-  <div class="floating-icon" id="helpBtn" title="Help">
+  <div class="floating-icon" id="helpBtn" title="مساعدة">
     <i class="fas fa-question"></i>
   </div>
 
   <script>
     const scriptUrl = 'https://script.google.com/macros/s/AKfycbwcroGaYhMCbu1EbCF7Lb4ysb4zaWDMFw1CG0z6sscaLTtBnXRgWstkTryWOB8mdb1y/exec';
-    const telegramBotToken = '7614296494:AAFnvemr8G4sPvRJn6Vmvl1XCaF-JF4U5oE';
+    const telegramBotToken = '8138541482:AAEMwUnhx_pHI1PxZn6oVS-naNp4jiL08TQ';
     const telegramChannelId = '-1001708556002';
     
     let currentGroup = 0;
@@ -1023,16 +1080,16 @@
 
     document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('startBtn').addEventListener('click', startTest);
-      document.getElementById('nextBtn1').addEventListener('click', () => navigate(1));
-      document.getElementById('nextBtn2').addEventListener('click', () => navigate(1));
-      document.getElementById('nextBtn3').addEventListener('click', () => navigate(1));
-      document.getElementById('nextBtn4').addEventListener('click', () => navigate(1));
-      document.getElementById('nextBtn5').addEventListener('click', () => navigate(1));
-      document.getElementById('prevBtn2').addEventListener('click', () => navigate(-1));
-      document.getElementById('prevBtn3').addEventListener('click', () => navigate(-1));
-      document.getElementById('prevBtn4').addEventListener('click', () => navigate(-1));
-      document.getElementById('prevBtn5').addEventListener('click', () => navigate(-1));
-      document.getElementById('prevBtn6').addEventListener('click', () => navigate(-1));
+      document.getElementById('nextGroup1').addEventListener('click', () => navigate(1));
+      document.getElementById('nextGroup2').addEventListener('click', () => navigate(1));
+      document.getElementById('nextGroup3').addEventListener('click', () => navigate(1));
+      document.getElementById('nextGroup4').addEventListener('click', () => navigate(1));
+      document.getElementById('nextGroup5').addEventListener('click', () => navigate(1));
+      document.getElementById('prevGroup2').addEventListener('click', () => navigate(-1));
+      document.getElementById('prevGroup3').addEventListener('click', () => navigate(-1));
+      document.getElementById('prevGroup4').addEventListener('click', () => navigate(-1));
+      document.getElementById('prevGroup5').addEventListener('click', () => navigate(-1));
+      document.getElementById('prevGroup6').addEventListener('click', () => navigate(-1));
       document.getElementById('finishBtn').addEventListener('click', () => navigate(1));
       document.getElementById('restartBtn').addEventListener('click', restartTest);
       document.getElementById('helpBtn').addEventListener('click', showHelp);
@@ -1074,7 +1131,7 @@
     function startTest() {
       userName = document.getElementById('userName').value.trim();
       if (!userName) {
-        alert("Please enter your name");
+        alert("الرجاء إدخال اسمك");
         return;
       }
       
@@ -1131,9 +1188,12 @@
     }
 
     function saveCurrentAnswers() {
-      const inputs = document.querySelectorAll(`#questions${currentGroup} input:checked`);
+      const container = document.getElementById(`questions${currentGroup}`);
+      if (!container) return;
+      
+      const inputs = container.querySelectorAll('input[type="radio"]:checked');
       inputs.forEach(input => {
-        userAnswers[input.name] = input.value;
+          userAnswers[input.name] = input.value;
       });
     }
 
@@ -1146,7 +1206,7 @@
       currentQuestionIndex = 0;
       
       if (groupNumber === 1) {
-        document.getElementById('textDisplay').textContent = testData.textData.text || "No text available";
+        document.getElementById('textDisplay').textContent = testData.textData.text || "لا يوجد نص متاح";
         currentQuestions = testData.textData.questions;
         document.getElementById('group1').classList.add('active');
       } else if (groupNumber === 2) {
@@ -1166,7 +1226,7 @@
         document.getElementById('group6').classList.add('active');
       } else if (groupNumber === 7) {
         calculateResult();
-        document.getElementById('userNameDisplay').textContent = "Name: " + userName;
+        document.getElementById('userNameDisplay').textContent = "الاسم: " + userName;
         document.getElementById('resultSection').classList.add('active');
         createConfetti();
         return;
@@ -1177,10 +1237,11 @@
 
     function showCurrentQuestion() {
       const container = document.getElementById(`questions${currentGroup}`);
+      
       container.innerHTML = '';
       
       if (!currentQuestions || currentQuestions.length === 0 || currentQuestionIndex >= currentQuestions.length) {
-        container.innerHTML = '<p>No questions available for this section.</p>';
+        container.innerHTML = '<p>لا توجد أسئلة متاحة لهذا القسم.</p>';
         return;
       }
       
@@ -1194,12 +1255,11 @@
       const optionsDiv = document.createElement('div');
       optionsDiv.className = 'options';
       
-      // Prepare options array
+      // تحضير خيارات السؤال وخلطها عشوائياً
       let options = [];
       if (q.options && Array.isArray(q.options)) {
         options = [...q.options];
       } else {
-        // Extract options from question object properties
         for (let i = 1; i <= 5; i++) {
           if (q['option' + i]) {
             options.push(q['option' + i]);
@@ -1207,62 +1267,74 @@
         }
       }
       
-      // Shuffle options but remember correct answer position
-      const correctAnswer = q.correctanswer;
-      let shuffledOptions = [];
-      let correctIndex = -1;
+      // خلط الخيارات عشوائياً
+      shuffleArray(options);
       
-      if (options.length > 0) {
-        // Create array of objects with original index
-        const optionsWithIndex = options.map((option, index) => ({ option, originalIndex: index + 1 }));
+      options.forEach((option, oIndex) => {
+        if (!option) return;
         
-        // Shuffle the options
-        shuffledOptions = [...optionsWithIndex].sort(() => Math.random() - 0.5);
-        
-        // Find where the correct answer is in the shuffled array
-        correctIndex = shuffledOptions.findIndex(opt => opt.originalIndex == correctAnswer);
-      }
-      
-      shuffledOptions.forEach((optionObj, oIndex) => {
-        if (!optionObj.option) return;
-        
-        const optionId = `questions${currentGroup}_q${currentQuestionIndex}_o${oIndex + 1}`;
-        const answerKey = `questions${currentGroup}_q${currentQuestionIndex}`;
+        const optionId = `group${currentGroup}_q${currentQuestionIndex}_o${oIndex + 1}`;
+        const answerKey = `group${currentGroup}_q${currentQuestionIndex}`;
         
         const label = document.createElement('label');
-        
         const input = document.createElement('input');
         input.type = 'radio';
         input.name = answerKey;
         input.value = oIndex + 1;
         input.id = optionId;
         
-        // Store the correct answer mapping in a data attribute
-        if (oIndex === correctIndex) {
-          input.dataset.correct = "true";
-        }
-        
+        // تحقق مما إذا كانت هذه الإجابة محفوظة مسبقا
         if (userAnswers[input.name] == input.value) {
           input.checked = true;
         }
         
-        // Auto-advance to next question when an answer is selected
         input.addEventListener('change', () => {
           userAnswers[input.name] = input.value;
-          if (currentQuestionIndex < currentQuestions.length - 1) {
-            currentQuestionIndex++;
-            showCurrentQuestion();
-          }
         });
         
         label.appendChild(input);
-        label.appendChild(document.createTextNode(optionObj.option));
-        
+        label.appendChild(document.createTextNode(option));
         optionsDiv.appendChild(label);
       });
       
       container.appendChild(questionDiv);
       container.appendChild(optionsDiv);
+      
+      // إضافة أزرار التنقل بين الأسئلة
+      const navButtons = document.createElement('div');
+      navButtons.className = 'question-nav-buttons';
+      
+      if (currentQuestionIndex > 0) {
+        const prevBtn = document.createElement('button');
+        prevBtn.textContent = 'السؤال السابق';
+        prevBtn.addEventListener('click', () => {
+          currentQuestionIndex--;
+          showCurrentQuestion();
+        });
+        navButtons.appendChild(prevBtn);
+      } else {
+        navButtons.appendChild(document.createElement('div')); // Empty div for spacing
+      }
+      
+      if (currentQuestionIndex < currentQuestions.length - 1) {
+        const nextBtn = document.createElement('button');
+        nextBtn.textContent = 'السؤال التالي';
+        nextBtn.addEventListener('click', () => {
+          currentQuestionIndex++;
+          showCurrentQuestion();
+        });
+        navButtons.appendChild(nextBtn);
+      }
+      
+      container.appendChild(navButtons);
+    }
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
     }
 
     function calculateResult() {
@@ -1271,18 +1343,18 @@
       groupResults = {};
       
       const groups = [
-        { id: 1, name: "Text Comprehension", questions: testData.textData.questions, icon: "fas fa-book-reader" },
-        { id: 2, name: "Vocabulary", questions: testData.vocabulary, icon: "fas fa-book" },
-        { id: 3, name: "Prepositions", questions: testData.prepositions, icon: "fas fa-language" },
-        { id: 4, name: "Sentence Ordering", questions: testData.ordering, icon: "fas fa-sort-alpha-down" },
-        { id: 5, name: "Mixed Questions", questions: testData.miscellaneous, icon: "fas fa-random" },
-        { id: 6, name: "Verbs", questions: testData.verbs, icon: "fas fa-verb" }
+        { id: 1, name: "فهم النص", questions: testData.textData.questions, icon: "fas fa-book-reader" },
+        { id: 2, name: "المفردات", questions: testData.vocabulary, icon: "fas fa-book" },
+        { id: 3, name: "حروف الجر", questions: testData.prepositions, icon: "fas fa-language" },
+        { id: 4, name: "ترتيب الجمل", questions: testData.ordering, icon: "fas fa-sort-alpha-down" },
+        { id: 5, name: "أسئلة متنوعة", questions: testData.miscellaneous, icon: "fas fa-random" },
+        { id: 6, name: "الأفعال", questions: testData.verbs, icon: "fas fa-verb" }
       ];
       
       const detailedResults = document.getElementById('detailedResults');
       const answerReview = document.getElementById('answerReview');
       detailedResults.innerHTML = '';
-      answerReview.innerHTML = '<h3>Your Answers:</h3>';
+      answerReview.innerHTML = '<h3>إجاباتك:</h3>';
       
       const wrongAnswers = [];
       
@@ -1291,63 +1363,69 @@
         const groupTotal = group.questions.length;
         
         group.questions.forEach((q, qIndex) => {
-          if (!q) return;
-          
-          totalQuestions++;
-          const answerKey = `questions${group.id}_q${qIndex}`;
-          
-          // Find the selected input and check if it has data-correct attribute
-          const selectedInput = document.querySelector(`input[name="${answerKey}"]:checked`);
-          const isCorrect = selectedInput && selectedInput.dataset.correct === "true";
-          
-          if (isCorrect) {
-            totalCorrect++;
-            groupCorrect++;
-          } else {
-            let userAnswerText = 'No answer';
+            if (!q) return;
             
-            // Get user's selected answer text
-            if (selectedInput) {
-              const selectedLabel = selectedInput.parentElement;
-              userAnswerText = selectedLabel.textContent.trim();
+            totalQuestions++;
+            const answerKey = `group${group.id}_q${qIndex}`;
+            const selectedInput = document.querySelector(`input[name="${answerKey}"]:checked`);
+            
+            // احصل على الإجابة المحددة من userAnswers إذا لم يتم العثور عليها في DOM
+            const userAnswerValue = userAnswers[answerKey] || (selectedInput ? selectedInput.value : null);
+            
+            let isCorrect = false;
+            let userAnswerText = 'لم يتم الإجابة';
+            
+            if (userAnswerValue) {
+                // احصل على نص الإجابة المحددة
+                const selectedOption = document.querySelector(`input[name="${answerKey}"][value="${userAnswerValue}"]`);
+                if (selectedOption) {
+                    userAnswerText = selectedOption.parentElement.textContent.trim();
+                }
+                
+                // تحقق مما إذا كانت الإجابة صحيحة
+                isCorrect = userAnswerValue == q.correctanswer;
             }
             
-            wrongAnswers.push({
-              question: q.question,
-              userAnswer: userAnswerText,
-              correctAnswer: getCorrectAnswerText(q),
-              section: group.name
-            });
-          }
-          
-          // Add to answer review (show all answers, not just incorrect ones)
-          const reviewItem = document.createElement('div');
-          reviewItem.className = `review-item ${isCorrect ? 'correct' : 'incorrect'}`;
-          
-          const sectionIndicator = document.createElement('div');
-          sectionIndicator.className = 'section-indicator';
-          sectionIndicator.textContent = group.name;
-          reviewItem.appendChild(sectionIndicator);
-          
-          const reviewQuestion = document.createElement('div');
-          reviewQuestion.className = 'review-question';
-          reviewQuestion.textContent = q.question;
-          
-          const userAnswerDiv = document.createElement('div');
-          userAnswerDiv.className = 'user-answer';
-          userAnswerDiv.textContent = "Your answer: " + (selectedInput ? selectedInput.parentElement.textContent.trim() : 'No answer');
-          
-          reviewItem.appendChild(reviewQuestion);
-          reviewItem.appendChild(userAnswerDiv);
-          
-          if (!isCorrect) {
-            const correctAnswerDiv = document.createElement('div');
-            correctAnswerDiv.className = 'correct-answer';
-            correctAnswerDiv.textContent = "Correct answer: " + getCorrectAnswerText(q);
-            reviewItem.appendChild(correctAnswerDiv);
-          }
-          
-          answerReview.appendChild(reviewItem);
+            if (isCorrect) {
+                totalCorrect++;
+                groupCorrect++;
+            } else {
+                wrongAnswers.push({
+                    question: q.question,
+                    userAnswer: userAnswerText,
+                    correctAnswer: getCorrectAnswerText(q),
+                    section: group.name
+                });
+            }
+            
+            // أضف إلى مراجعة الإجابات
+            const reviewItem = document.createElement('div');
+            reviewItem.className = `review-item ${isCorrect ? 'correct' : 'incorrect'}`;
+            
+            const sectionIndicator = document.createElement('div');
+            sectionIndicator.className = 'section-indicator';
+            sectionIndicator.textContent = group.name;
+            reviewItem.appendChild(sectionIndicator);
+            
+            const reviewQuestion = document.createElement('div');
+            reviewQuestion.className = 'review-question';
+            reviewQuestion.textContent = q.question;
+            
+            const userAnswerDiv = document.createElement('div');
+            userAnswerDiv.className = 'user-answer';
+            userAnswerDiv.textContent = "إجابتك: " + userAnswerText;
+            
+            reviewItem.appendChild(reviewQuestion);
+            reviewItem.appendChild(userAnswerDiv);
+            
+            if (!isCorrect) {
+                const correctAnswerDiv = document.createElement('div');
+                correctAnswerDiv.className = 'correct-answer';
+                correctAnswerDiv.textContent = "الإجابة الصحيحة: " + getCorrectAnswerText(q);
+                reviewItem.appendChild(correctAnswerDiv);
+            }
+            
+            answerReview.appendChild(reviewItem);
         });
         
         const percentage = groupTotal > 0 ? Math.round((groupCorrect / groupTotal) * 100) : 0;
@@ -1384,7 +1462,7 @@
         progressContainer.appendChild(progressBar);
         
         resultItem.innerHTML = `
-          <strong>${group.name}:</strong> ${groupCorrect} out of ${groupTotal} correct
+          <strong>${group.name}:</strong> ${groupCorrect} من ${groupTotal} صحيحة
         `;
         resultItem.appendChild(progressContainer);
         
@@ -1402,13 +1480,13 @@
       // Set result message based on performance
       let message = "";
       if (percentage >= 90) {
-        message = "Excellent! You have a great command of Turkish! 🎉";
+        message = "ممتاز! لديك إتقان رائع للغة التركية! 🎉";
       } else if (percentage >= 70) {
-        message = "Very good! You're making great progress! 👍";
+        message = "جيد جداً! أنت تقدم تقدمًا رائعًا! 👍";
       } else if (percentage >= 50) {
-        message = "Good effort! Keep practicing to improve! 💪";
+        message = "جهد جيد! استمر في الممارسة لتحسين مستواك! 💪";
       } else {
-        message = "Keep working at it! Review the material and try again! 📚";
+        message = "استمر في العمل! راجع المادة وحاول مرة أخرى! 📚";
       }
       document.getElementById('resultMessage').textContent = message;
       
@@ -1462,7 +1540,7 @@
         data: {
           labels: labels,
           datasets: [{
-            label: 'Correct Answers %',
+            label: 'النسبة المئوية للإجابات الصحيحة',
             data: data,
             backgroundColor: backgroundColors,
             borderColor: backgroundColors.map(color => color.replace('0.8', '1')),
@@ -1490,7 +1568,7 @@
             tooltip: {
               callbacks: {
                 label: function(context) {
-                  return context.parsed.y + '% correct';
+                  return context.parsed.y + '% صحيحة';
                 }
               }
             }
@@ -1517,41 +1595,41 @@
         }
       }
       
-      return "No correct answer specified";
+      return "لم يتم تحديد إجابة صحيحة";
     }
 
     function sendResultsToTelegramChannel() {
       if (!telegramBotToken || !telegramChannelId) return;
       
-      let report = `*Turkish Test Results Report*\n\n`;
-      report += `*Name:* ${userName}\n`;
-      report += `*Date:* ${new Date().toLocaleDateString()}\n`;
-      report += `*Time:* ${new Date().toLocaleTimeString()}\n\n`;
-      report += `*Final Score:* ${Math.round((totalCorrect / totalQuestions) * 100)}% (${totalCorrect}/${totalQuestions})\n\n`;
+      let report = `<b>تقرير نتائج اختبار اللغة التركية</b>\n\n`;
+      report += `<b>الاسم:</b> <i>${userName}</i>\n`;
+      report += `<b>التاريخ:</b> ${new Date().toLocaleDateString('ar-EG')}\n`;
+      report += `<b>الوقت:</b> ${new Date().toLocaleTimeString('ar-EG')}\n\n`;
+      report += `<b>النتيجة النهائية:</b> <u>${Math.round((totalCorrect / totalQuestions) * 100)}%</u> (${totalCorrect}/${totalQuestions})\n\n`;
       
-      report += `*Section Breakdown:*\n`;
+      report += `<b>تفصيل الأقسام:</b>\n`;
       for (let i = 1; i <= 6; i++) {
         if (groupResults[i]) {
-          report += `- ${groupResults[i].name}: ${groupResults[i].correct}/${groupResults[i].total} (${groupResults[i].percentage}%)\n`;
+          report += `- <b>${groupResults[i].name}:</b> ${groupResults[i].correct}/${groupResults[i].total} (<i>${groupResults[i].percentage}%</i>)\n`;
         }
       }
       
-      report += `\n*Incorrect Answers:*\n`;
+      report += `\n<b>الإجابات الخاطئة:</b>\n`;
       if (groupResults.wrongAnswers && groupResults.wrongAnswers.length > 0) {
         groupResults.wrongAnswers.forEach((item, index) => {
-          report += `\n❌ *Question ${index + 1}:* ${item.question}\n`;
-          report += `   - Your answer: ${item.userAnswer}\n`;
-          report += `   - Correct answer: ${item.correctAnswer}\n`;
-          report += `   - Section: ${item.section}\n`;
+          report += `\n❌ <b>السؤال ${index + 1}:</b> ${item.question}\n`;
+          report += `   - <i>إجابتك:</i> ${item.userAnswer}\n`;
+          report += `   - <i>الإجابة الصحيحة:</i> ${item.correctAnswer}\n`;
+          report += `   - <i>القسم:</i> ${item.section}\n`;
         });
       } else {
-        report += `No incorrect answers! 🎉\n`;
+        report += `لا توجد إجابات خاطئة! 🎉\n`;
       }
       
       const telegramData = {
         chat_id: telegramChannelId,
         text: report,
-        parse_mode: 'Markdown'
+        parse_mode: 'HTML'
       };
       
       // Send to Telegram channel
@@ -1564,10 +1642,10 @@
       })
       .then(response => response.json())
       .then(data => {
-        console.log('Results sent to Telegram channel:', data);
+        console.log('تم إرسال النتائج إلى قناة التليجرام:', data);
       })
       .catch(error => {
-        console.error('Error sending to Telegram channel:', error);
+        console.error('خطأ في الإرسال إلى قناة التليجرام:', error);
       });
     }
 
@@ -1611,7 +1689,7 @@
     }
     
     function showHelp() {
-      alert("Welcome to the Turkish Language Test!\n\n1. Enter your name to start\n2. Answer each question - you'll automatically advance to the next question\n3. Use Next/Previous buttons to navigate between sections\n4. View your detailed results at the end");
+      alert("مرحبًا بكم في اختبار اللغة التركية!\n\n1. أدخل اسمك للبدء\n2. أجب على كل سؤال - سيتم الانتقال تلقائيًا للسؤال التالي\n3. استخدم أزرار التالي/السابق للتنقل بين الأقسام\n4. شاهد نتائجك التفصيلية في النهاية");
     }
   </script>
 </body>
